@@ -115,38 +115,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.cs" />
-    <Compile Include="ItemCategory.cs" />
-    <Compile Include="ItemCategoryMap.cs" />
-    <Compile Include="KoltsegvetesFelvitele.cs">
+    <Compile Include="DataLayer\Category.cs" />
+    <Compile Include="DataLayer\ItemCategory.cs" />
+    <Compile Include="Forms\KoltsegvetesFelvitele.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KoltsegvetesFelvitele.Designer.cs">
+    <Compile Include="Forms\KoltsegvetesFelvitele.Designer.cs">
       <DependentUpon>KoltsegvetesFelvitele.cs</DependentUpon>
     </Compile>
-    <Compile Include="ISampleContext.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Migrations\201609050558391_InitialCreate.cs" />
-    <Compile Include="Migrations\201609050558391_InitialCreate.Designer.cs">
-      <DependentUpon>201609050558391_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataLayer\ISampleContext.cs" />
+    <Compile Include="DataLayer\Item.cs" />
+    <Compile Include="Migrations\201609070422498_InitialCreate.cs" />
+    <Compile Include="Migrations\201609070422498_InitialCreate.Designer.cs">
+      <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleContext.cs" />
-    <Compile Include="TermekekFelvitele.cs">
+    <Compile Include="DataLayer\SampleContext.cs" />
+    <Compile Include="Forms\TermekekFelvitele.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TermekekFelvitele.Designer.cs">
+    <Compile Include="Forms\TermekekFelvitele.Designer.cs">
       <DependentUpon>TermekekFelvitele.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction.cs" />
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="KoltsegvetesFelvitele.resx">
+    <Compile Include="DataLayer\Transaction.cs" />
+    <Compile Include="DataLayer\User.cs" />
+    <EmbeddedResource Include="Forms\KoltsegvetesFelvitele.resx">
       <DependentUpon>KoltsegvetesFelvitele.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609050558391_InitialCreate.resx">
-      <DependentUpon>201609050558391_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609070422498_InitialCreate.resx">
+      <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -157,7 +156,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TermekekFelvitele.resx">
+    <EmbeddedResource Include="Forms\TermekekFelvitele.resx">
       <DependentUpon>TermekekFelvitele.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -176,6 +175,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
