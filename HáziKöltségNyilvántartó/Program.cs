@@ -21,10 +21,12 @@ namespace HáziKöltségNyilvántartó
             builder.RegisterType<SampleContext>().As<ISampleContext>().InstancePerLifetimeScope();
             builder.RegisterType<KoltsegvetesFelvitele>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<TermekekFelvitele>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<KoltsegvetesMegjelenites>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<StatisticsForm>().AsSelf().InstancePerLifetimeScope();
             Container = builder.Build();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.Resolve<TermekekFelvitele>());
+            Application.Run(Container.Resolve<StatisticsForm>());
         }
     }
 }

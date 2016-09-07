@@ -45,14 +45,15 @@ namespace HáziKöltségNyilvántartó
 
         private void SaveDataToDatabase(List<ItemCategory> list)
         {
-            int counter = _itemCategoryList.Count();
+            int counter = list.Count();
             SampleContext context = _context as SampleContext;
             context.Database.ExecuteSqlCommand("DELETE FROM Items");
-            context.Database.ExecuteSqlCommand("DELETE FROM Categories");
+            context.Database.ExecuteSqlCommand("DELETE FROM Categories WHERE Id != 1");
+            context.Database.ExecuteSqlCommand("DELETE FROM Transactions");
             _context.SaveChanges();
             for (int i = 0; i < counter; i++)
             {
-                var listitem = _itemCategoryList[i];
+                var listitem = list[i];
                 if (!_context.Categories.Any(entry => entry.Name == listitem.CategoryName))
                 {
                     Category category = new Category() { Name = listitem.CategoryName };
@@ -66,6 +67,15 @@ namespace HáziKöltségNyilvántartó
                 item.CategoryId = _context.Categories.Where(entry => entry.Name == listitem.CategoryName).Select(entry => entry.Id).First();
                 _context.Items.Add(item);
                 _context.SaveChanges();
+
+                Transaction transaction = new Transaction();
+                transaction.CreatedTime = listitem.CreatedDate;
+                transaction.IsIncome = false;
+                transaction.ItemId = _context.Items.Where(entry => entry.Name == listitem.Name).Select(entry => entry.Id).First();
+                transaction.Value = listitem.Value;
+                transaction.UserId = 1;
+                _context.Transactions.Add(transaction);
+                _context.SaveChanges();
             }
         }
 
@@ -74,6 +84,7 @@ namespace HáziKöltségNyilvántartó
             List<ItemCategory> warehouse = new List<ItemCategory>();
             List<Item> itemList = _context.Items.ToList();
             List<Category> categoryList = _context.Categories.ToList();
+            List<Transaction> transactionList = _context.Transactions.ToList();
             int counter = _context.Items.Count();
 
             for (int i = 0; i < counter; i++)
@@ -83,6 +94,7 @@ namespace HáziKöltségNyilvántartó
                 itemCategory.Name = itemList[i].Name;
                 itemCategory.Value = itemList[i].LastValue;
                 itemCategory.CategoryName = categoryList.Where(entry => entry.Id == itemList[i].CategoryId).Select(entry => entry.Name).First();
+                itemCategory.CreatedDate = transactionList[i].CreatedTime;
                 warehouse.Add(itemCategory);
                 itemCategory = null;
             }
@@ -104,7 +116,22 @@ namespace HáziKöltségNyilvántartó
                 open.Filter = "Csv fájlok (*.csv)|*.csv|Minden fájl (*.*)|*.*";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
-                    backgroundWorker1.RunWorkerAsync(open.FileName);
+                    List<ItemCategory> warehouse = new List<ItemCategory>();
+
+                    using (var fileReader = new StreamReader(open.FileName, Encoding.Default, true))
+                    using (var csvReader = new CsvReader(fileReader))
+                    {
+                        csvReader.Configuration.Delimiter = ";";
+                        csvReader.Configuration.TrimFields = true;
+                        while (csvReader.Read())
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                warehouse.Add(csvReader.GetRecord<ItemCategory>());
+                            }));
+                        }
+                        SaveDataToDatabase(warehouse);
+                    }
                     _itemCategoryList = new BindingList<ItemCategory>(LoadDataFromDatabase());
                     itemCategoryBindingSource.DataSource = _itemCategoryList;
                     

@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="DataLayer\Category.cs" />
     <Compile Include="DataLayer\ItemCategory.cs" />
+    <Compile Include="DataLayer\Statistics.cs" />
     <Compile Include="Forms\KoltsegvetesFelvitele.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,18 @@
     </Compile>
     <Compile Include="DataLayer\ISampleContext.cs" />
     <Compile Include="DataLayer\Item.cs" />
+    <Compile Include="Forms\KoltsegvetesMegjelenites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KoltsegvetesMegjelenites.Designer.cs">
+      <DependentUpon>KoltsegvetesMegjelenites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StatisticsForm.Designer.cs">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201609070422498_InitialCreate.cs" />
     <Compile Include="Migrations\201609070422498_InitialCreate.Designer.cs">
       <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
@@ -144,6 +157,12 @@
     <EmbeddedResource Include="Forms\KoltsegvetesFelvitele.resx">
       <DependentUpon>KoltsegvetesFelvitele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KoltsegvetesMegjelenites.resx">
+      <DependentUpon>KoltsegvetesMegjelenites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StatisticsForm.resx">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609070422498_InitialCreate.resx">
       <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +181,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Item.datasource" />
     <None Include="Properties\DataSources\ItemCategory.datasource" />
+    <None Include="Properties\DataSources\Statistics.datasource" />
+    <None Include="Properties\DataSources\Transaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

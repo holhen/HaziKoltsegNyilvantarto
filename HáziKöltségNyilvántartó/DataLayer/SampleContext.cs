@@ -9,7 +9,7 @@ namespace HáziKöltségNyilvántartó
 {
     class SampleContext: DbContext, ISampleContext
     {
-        public SampleContext(): base("KoltsegNyilvantartas")
+        public SampleContext(): base("HollosiHenrik")
         {
 
         }
