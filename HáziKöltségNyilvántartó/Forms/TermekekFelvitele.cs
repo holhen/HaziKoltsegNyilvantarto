@@ -40,10 +40,10 @@ namespace HáziKöltségNyilvántartó
 
         private void mentésToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveDataFromGrid();
+           
         }
 
-        private void SaveDataFromGrid()
+        private void SaveDataFromGridToDatabase()
         {
             int counter = _itemCategoryList.Count();
             SampleContext context = _context as SampleContext;
@@ -149,6 +149,42 @@ namespace HáziKöltségNyilvántartó
 
             }
 
+        }
+
+        private void adatbázisbaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveDataFromGridToDatabase();
+        }
+
+        private void cSVFájlbaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog save = new SaveFileDialog())
+            {
+                save.Filter = "Csv fájlok (*.csv)| *.csv|Minden fájl (*.*)|*.*";
+                save.OverwritePrompt = true;
+                save.AddExtension = true;
+                save.DefaultExt = ".csv";
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    backgroundWorker2.RunWorkerAsync(save.FileName);
+                }
+
+            }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (StreamWriter textwriter = new StreamWriter((string)e.Argument, false))
+            using (CsvWriter writer = new CsvWriter(textwriter))
+            {
+                writer.Configuration.Delimiter = ";";
+                writer.Configuration.QuoteAllFields = true;
+                writer.WriteHeader<ItemCategory>();
+                foreach (ItemCategory itemCategory in _itemCategoryList)
+                {
+                    writer.WriteRecord(itemCategory);
+                }
+            }
         }
     }
 }
