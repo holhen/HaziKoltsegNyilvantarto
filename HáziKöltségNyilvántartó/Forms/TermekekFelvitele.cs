@@ -43,7 +43,7 @@ namespace HáziKöltségNyilvántartó
            
         }
 
-        private void SaveDataFromGridToDatabase()
+        private void SaveDataToDatabase(List<ItemCategory> list)
         {
             int counter = _itemCategoryList.Count();
             SampleContext context = _context as SampleContext;
@@ -67,12 +67,11 @@ namespace HáziKöltségNyilvántartó
                 _context.Items.Add(item);
                 _context.SaveChanges();
             }
-            MessageBox.Show("Az adatokat sikeresen elmentettük.");
         }
 
-        private void adatbázisbólToolStripMenuItem_Click(object sender, EventArgs e)
+        private List<ItemCategory> LoadDataFromDatabase()
         {
-            _itemCategoryList = new BindingList<ItemCategory>();
+            List<ItemCategory> warehouse = new List<ItemCategory>();
             List<Item> itemList = _context.Items.ToList();
             List<Category> categoryList = _context.Categories.ToList();
             int counter = _context.Items.Count();
@@ -84,9 +83,15 @@ namespace HáziKöltségNyilvántartó
                 itemCategory.Name = itemList[i].Name;
                 itemCategory.Value = itemList[i].LastValue;
                 itemCategory.CategoryName = categoryList.Where(entry => entry.Id == itemList[i].CategoryId).Select(entry => entry.Name).First();
-                _itemCategoryList.Add(itemCategory);
+                warehouse.Add(itemCategory);
                 itemCategory = null;
             }
+            return warehouse;
+        }
+
+        private void adatbázisbólToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _itemCategoryList = new BindingList<ItemCategory>(LoadDataFromDatabase());
             itemCategoryBindingSource.DataSource = _itemCategoryList;
         }
 
@@ -99,9 +104,10 @@ namespace HáziKöltségNyilvántartó
                 open.Filter = "Csv fájlok (*.csv)|*.csv|Minden fájl (*.*)|*.*";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
-                    _itemCategoryList = new BindingList<ItemCategory>();
                     backgroundWorker1.RunWorkerAsync(open.FileName);
+                    _itemCategoryList = new BindingList<ItemCategory>(LoadDataFromDatabase());
                     itemCategoryBindingSource.DataSource = _itemCategoryList;
+                    
                 }
             }
 
@@ -133,6 +139,7 @@ namespace HáziKöltségNyilvántartó
                     }));
                 }
             }*/
+            List<ItemCategory> warehouse = new List<ItemCategory>();
 
             using (var fileReader = new StreamReader((string)e.Argument, Encoding.Default, true))
             using (var csvReader = new CsvReader(fileReader))
@@ -143,9 +150,10 @@ namespace HáziKöltségNyilvántartó
                 {
                     Invoke(new Action(() =>
                     {
-                        _itemCategoryList.Add(csvReader.GetRecord<ItemCategory>());
+                        warehouse.Add(csvReader.GetRecord<ItemCategory>());
                     }));
                 }
+                SaveDataToDatabase(warehouse);
 
             }
 
@@ -153,7 +161,7 @@ namespace HáziKöltségNyilvántartó
 
         private void adatbázisbaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveDataFromGridToDatabase();
+            SaveDataToDatabase(_itemCategoryList.ToList());
         }
 
         private void cSVFájlbaToolStripMenuItem_Click(object sender, EventArgs e)
