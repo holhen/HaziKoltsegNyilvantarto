@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
+using HáziKöltségNyilvántartó.ViewModels;
 
 namespace HáziKöltségNyilvántartó
 {
@@ -23,6 +24,7 @@ namespace HáziKöltségNyilvántartó
             builder.RegisterType<TermekekFelvitele>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<KoltsegvetesMegjelenites>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsForm>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<StatisticsViewModel>().AsSelf().InstancePerLifetimeScope();
             Container = builder.Build();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

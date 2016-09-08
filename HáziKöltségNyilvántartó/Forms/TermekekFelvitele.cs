@@ -51,6 +51,7 @@ namespace HáziKöltségNyilvántartó
             context.Database.ExecuteSqlCommand("DELETE FROM Categories WHERE Id != 1");
             context.Database.ExecuteSqlCommand("DELETE FROM Transactions");
             _context.SaveChanges();
+            DateTime createdDate = new DateTime(2014, 1, 1);
             for (int i = 0; i < counter; i++)
             {
                 var listitem = list[i];
@@ -69,7 +70,7 @@ namespace HáziKöltségNyilvántartó
                 _context.SaveChanges();
 
                 Transaction transaction = new Transaction();
-                transaction.CreatedTime = listitem.CreatedDate;
+                transaction.CreatedTime = createdDate.AddDays(i);
                 transaction.IsIncome = false;
                 transaction.ItemId = _context.Items.Where(entry => entry.Name == listitem.Name).Select(entry => entry.Id).First();
                 transaction.Value = listitem.Value;
@@ -77,6 +78,7 @@ namespace HáziKöltségNyilvántartó
                 _context.Transactions.Add(transaction);
                 _context.SaveChanges();
             }
+            MessageBox.Show("Az adatokat sikeresen elmentettük.");
         }
 
         private List<ItemCategory> LoadDataFromDatabase()
@@ -121,19 +123,29 @@ namespace HáziKöltségNyilvántartó
                     using (var fileReader = new StreamReader(open.FileName, Encoding.Default, true))
                     using (var csvReader = new CsvReader(fileReader))
                     {
+                        _itemCategoryList = new BindingList<ItemCategory>();
                         csvReader.Configuration.Delimiter = ";";
                         csvReader.Configuration.TrimFields = true;
+                        DateTime date = new DateTime(2014, 1, 1);
+                        int i = 0;
                         while (csvReader.Read())
                         {
-                            Invoke(new Action(() =>
-                            {
-                                warehouse.Add(csvReader.GetRecord<ItemCategory>());
-                            }));
+                            ItemCategory ic = new ItemCategory();
+                            ic.Id = csvReader.GetField<int>(0);
+                            ic.Name = csvReader.GetField<string>(1);
+                            ic.CategoryName = csvReader.GetField<string>(2);
+                            ic.Value = csvReader.GetField<int>(3);
+                            ic.CreatedDate = date.AddDays(i);
+                            i++;
+                            warehouse.Add(ic);
                         }
+                        foreach (ItemCategory ic in warehouse)
+                        {
+                            _itemCategoryList.Add(ic);
+                        }
+                        itemCategoryBindingSource.DataSource = _itemCategoryList;
                         SaveDataToDatabase(warehouse);
                     }
-                    _itemCategoryList = new BindingList<ItemCategory>(LoadDataFromDatabase());
-                    itemCategoryBindingSource.DataSource = _itemCategoryList;
                     
                 }
             }

@@ -7,31 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HáziKöltségNyilvántartó.ViewModels;
 
 namespace HáziKöltségNyilvántartó
 {
     public partial class StatisticsForm : Form
     {
-        private ISampleContext _context;
-        public StatisticsForm(ISampleContext context)
+        private StatisticsViewModel _viewModel;
+        public StatisticsForm(StatisticsViewModel viewModel)
         {
             InitializeComponent();
-            _context = context;
+            _viewModel = viewModel;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            List<Statistics> stats = new List<Statistics>();
-            for (int i = 1; i <= 12; i++)
-            {
-                var stat = new Statistics();
-                stat.Month = i;
-                stat.MonthlyIncome = _context.Transactions.Where(entry => entry.IsIncome == true && entry.CreatedTime.Month == i).Select(entry => entry.Value).DefaultIfEmpty(0).Sum();
-                stat.MonthlySpending = _context.Transactions.Where(entry => entry.IsIncome == false && entry.CreatedTime.Month == i).Select(entry => entry.Value).DefaultIfEmpty(0).Sum();
-                stat.MonthlyDifference = stat.MonthlyIncome - stat.MonthlySpending;
-                stats.Add(stat);
-            }
-            statisticsBindingSource.DataSource = stats;
+            statisticsBindingSource.DataSource = _viewModel.GetStatisticsForYear(dateTimePicker1.Value.Year);
+            categoryStatisticsBindingSource2.DataSource = _viewModel.GetCategoryStatistics(dateTimePicker1.Value.Year);
+            dataGridView3.Columns[2].DefaultCellStyle.Format = "#0.000\\%";
+            dataGridView2.Columns[2].DefaultCellStyle.Format = "#0.000\\%";
+
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            List<CategoryStatistics> catstats = _viewModel.GetCategoryStatistics(dateTimePicker1.Value.Year,e.RowIndex + 1);
+            categoryStatisticsBindingSource.DataSource = catstats;
         }
     }
 }

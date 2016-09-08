@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer\Category.cs" />
+    <Compile Include="DataLayer\CategoryStatistics.cs" />
     <Compile Include="DataLayer\ItemCategory.cs" />
     <Compile Include="DataLayer\Statistics.cs" />
     <Compile Include="Forms\KoltsegvetesFelvitele.cs">
@@ -154,6 +155,7 @@
     </Compile>
     <Compile Include="DataLayer\Transaction.cs" />
     <Compile Include="DataLayer\User.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <EmbeddedResource Include="Forms\KoltsegvetesFelvitele.resx">
       <DependentUpon>KoltsegvetesFelvitele.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +181,7 @@
       <DependentUpon>TermekekFelvitele.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CategoryStatistics.datasource" />
     <None Include="Properties\DataSources\Item.datasource" />
     <None Include="Properties\DataSources\ItemCategory.datasource" />
     <None Include="Properties\DataSources\Statistics.datasource" />
