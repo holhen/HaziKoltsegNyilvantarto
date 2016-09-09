@@ -105,6 +105,7 @@
             // income
             // 
             this.income.AutoSize = true;
+            this.income.Checked = true;
             this.income.Location = new System.Drawing.Point(21, 28);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(61, 17);
@@ -125,6 +126,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(457, 194);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -132,10 +134,11 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // KoltsegvetesFelvitele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(559, 241);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -144,7 +147,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameBox);
-            this.Name = "Form1";
+            this.Name = "KoltsegvetesFelvitele";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.priceNumber)).EndInit();

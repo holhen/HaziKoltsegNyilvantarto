@@ -15,7 +15,8 @@ namespace HáziKöltségNyilvántartó
         private ISampleContext _context;
         private List<Item> items;
         private List<Category> categories;
-        AutoCompleteStringCollection nameCollection = new AutoCompleteStringCollection();
+        private AutoCompleteStringCollection nameCollection = new AutoCompleteStringCollection();
+        public List<Transaction> transactionList;
 
         public KoltsegvetesFelvitele(ISampleContext context)
         {
@@ -30,6 +31,12 @@ namespace HáziKöltségNyilvántartó
             var query = items.Where(entry => entry.Name == nameBox.Text).Select(entry => entry.LastValue);
             if (query.Any() && priceNumber.Value == 0)
                 priceNumber.Value = query.First();
+            else
+            {
+                priceNumber.Value = 0;
+            }
+            priceNumber.Select(0, priceNumber.Text.Length);
+            priceNumber.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,6 +47,7 @@ namespace HáziKöltségNyilvántartó
             transaction.Value = (int)priceNumber.Value;
             transaction.CreatedTime = DateTime.Now;
             transaction.UserId = 1;
+            transactionList.Add(transaction);
             nameCollection.Add(nameBox.Text);
             _context.Transactions.Add(transaction);
             if (!items.Any(entry => entry.Name == nameBox.Text))

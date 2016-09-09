@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
 using HáziKöltségNyilvántartó.ViewModels;
+using HáziKöltségNyilvántartó.Forms;
 
 namespace HáziKöltségNyilvántartó
 {
@@ -25,10 +26,12 @@ namespace HáziKöltségNyilvántartó
             builder.RegisterType<KoltsegvetesMegjelenites>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsForm>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsViewModel>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<LoginForm>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<MainForm>().AsSelf().InstancePerLifetimeScope();
             Container = builder.Build();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.Resolve<StatisticsForm>());
+            Application.Run(Container.Resolve<MainForm>());
         }
     }
 }

@@ -30,24 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fájlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mentésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.betöltésAdatbázisbólToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adatbázisbólToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cSVFájlbólToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fájlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mentésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adatbázisbaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSVFájlbaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -61,68 +62,10 @@
             this.valueDataGridViewTextBoxColumn,
             this.CreatedDate});
             this.dataGridView1.DataSource = this.itemCategoryBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(830, 463);
+            this.dataGridView1.Size = new System.Drawing.Size(830, 474);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fájlToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fájlToolStripMenuItem
-            // 
-            this.fájlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mentésToolStripMenuItem,
-            this.betöltésAdatbázisbólToolStripMenuItem});
-            this.fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
-            this.fájlToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fájlToolStripMenuItem.Text = "Fájl";
-            // 
-            // mentésToolStripMenuItem
-            // 
-            this.mentésToolStripMenuItem.Name = "mentésToolStripMenuItem";
-            this.mentésToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.mentésToolStripMenuItem.Text = "Mentés";
-            this.mentésToolStripMenuItem.Click += new System.EventHandler(this.mentésToolStripMenuItem_Click);
-            // 
-            // betöltésAdatbázisbólToolStripMenuItem
-            // 
-            this.betöltésAdatbázisbólToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adatbázisbólToolStripMenuItem,
-            this.cSVFájlbólToolStripMenuItem});
-            this.betöltésAdatbázisbólToolStripMenuItem.Name = "betöltésAdatbázisbólToolStripMenuItem";
-            this.betöltésAdatbázisbólToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.betöltésAdatbázisbólToolStripMenuItem.Text = "Betöltés";
-            // 
-            // adatbázisbólToolStripMenuItem
-            // 
-            this.adatbázisbólToolStripMenuItem.Name = "adatbázisbólToolStripMenuItem";
-            this.adatbázisbólToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.adatbázisbólToolStripMenuItem.Text = "Adatbázisból";
-            this.adatbázisbólToolStripMenuItem.Click += new System.EventHandler(this.adatbázisbólToolStripMenuItem_Click);
-            // 
-            // cSVFájlbólToolStripMenuItem
-            // 
-            this.cSVFájlbólToolStripMenuItem.Name = "cSVFájlbólToolStripMenuItem";
-            this.cSVFájlbólToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.cSVFájlbólToolStripMenuItem.Text = "CSV fájlból";
-            this.cSVFájlbólToolStripMenuItem.Click += new System.EventHandler(this.cSVFájlbólToolStripMenuItem_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -148,15 +91,80 @@
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             // 
-            // itemCategoryBindingSource
-            // 
-            this.itemCategoryBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.ItemCategory);
-            // 
             // CreatedDate
             // 
             this.CreatedDate.DataPropertyName = "CreatedDate";
             this.CreatedDate.HeaderText = "CreatedDate";
             this.CreatedDate.Name = "CreatedDate";
+            // 
+            // itemCategoryBindingSource
+            // 
+            this.itemCategoryBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.ItemCategory);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fájlToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(844, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fájlToolStripMenuItem
+            // 
+            this.fájlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mentésToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem});
+            this.fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
+            this.fájlToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fájlToolStripMenuItem.Text = "Fájl";
+            // 
+            // mentésToolStripMenuItem
+            // 
+            this.mentésToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adatbázisbaToolStripMenuItem,
+            this.cSVFájlbaToolStripMenuItem});
+            this.mentésToolStripMenuItem.Name = "mentésToolStripMenuItem";
+            this.mentésToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.mentésToolStripMenuItem.Text = "Változtatások mentése";
+            // 
+            // adatbázisbaToolStripMenuItem
+            // 
+            this.adatbázisbaToolStripMenuItem.Name = "adatbázisbaToolStripMenuItem";
+            this.adatbázisbaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.adatbázisbaToolStripMenuItem.Text = "Adatbázisba";
+            this.adatbázisbaToolStripMenuItem.Click += new System.EventHandler(this.adatbázisbaToolStripMenuItem_Click_1);
+            // 
+            // cSVFájlbaToolStripMenuItem
+            // 
+            this.cSVFájlbaToolStripMenuItem.Name = "cSVFájlbaToolStripMenuItem";
+            this.cSVFájlbaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cSVFájlbaToolStripMenuItem.Text = "CSV fájlba";
+            this.cSVFájlbaToolStripMenuItem.Click += new System.EventHandler(this.cSVFájlbaToolStripMenuItem_Click);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.importToolStripMenuItem.Text = "Import CSV fájlból adatbázisba";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.exportToolStripMenuItem.Text = "Export adatbázisból CSV fájlba";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // TermekekFelvitele
             // 
@@ -170,9 +178,9 @@
             this.Text = "TermekekFelvitele";
             this.Load += new System.EventHandler(this.TermekekFelvitele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,9 +193,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fájlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mentésToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem betöltésAdatbázisbólToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adatbázisbólToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSVFájlbólToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         //private System.Windows.Forms.DataGridViewTextBoxColumn lastValueDataGridViewTextBoxColumn;
@@ -200,5 +206,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.ToolStripMenuItem adatbázisbaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSVFájlbaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
     }
 }

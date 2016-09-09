@@ -70,5 +70,21 @@ namespace HáziKöltségNyilvántartó
                 new PropertyChangedEventArgs(propertyName));
             return true;
         }
+
+        public override bool Equals(object obj)
+        {
+            Item item;
+            if (obj is Item)
+                item = obj as Item;
+            else return false;
+            if (item.Name == this.Name && item.LastValue == this.LastValue && item.IsIncome == this.IsIncome && item.CategoryId == this.CategoryId)
+                return true;
+            else return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
