@@ -118,7 +118,10 @@
     <Compile Include="DataLayer\Category.cs" />
     <Compile Include="DataLayer\CategoryStatistics.cs" />
     <Compile Include="DataLayer\ItemCategory.cs" />
+    <Compile Include="DataLayer\PasswordHelper.cs" />
     <Compile Include="DataLayer\Statistics.cs" />
+    <Compile Include="Exceptions\LoginException.cs" />
+    <Compile Include="Exceptions\RegistrationException.cs" />
     <Compile Include="Forms\KoltsegvetesFelvitele.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +158,18 @@
     <Compile Include="Migrations\201609070422498_InitialCreate.Designer.cs">
       <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609110907494_AddColumn.cs" />
+    <Compile Include="Migrations\201609110907494_AddColumn.Designer.cs">
+      <DependentUpon>201609110907494_AddColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609110909449_AddColumn1.cs" />
+    <Compile Include="Migrations\201609110909449_AddColumn1.Designer.cs">
+      <DependentUpon>201609110909449_AddColumn1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609111014031_Nullable.cs" />
+    <Compile Include="Migrations\201609111014031_Nullable.Designer.cs">
+      <DependentUpon>201609111014031_Nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,7 +182,11 @@
     </Compile>
     <Compile Include="DataLayer\Transaction.cs" />
     <Compile Include="DataLayer\User.cs" />
+    <Compile Include="ViewModels\KoltsegvetesFelviteleViewModel.cs" />
+    <Compile Include="ViewModels\KoltsegvetesMegjeleniteseViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
+    <Compile Include="ViewModels\TermekekFelviteleViewModel.cs" />
     <EmbeddedResource Include="Forms\KoltsegvetesFelvitele.resx">
       <DependentUpon>KoltsegvetesFelvitele.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +204,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609070422498_InitialCreate.resx">
       <DependentUpon>201609070422498_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609110907494_AddColumn.resx">
+      <DependentUpon>201609110907494_AddColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609110909449_AddColumn1.resx">
+      <DependentUpon>201609110909449_AddColumn1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609111014031_Nullable.resx">
+      <DependentUpon>201609111014031_Nullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

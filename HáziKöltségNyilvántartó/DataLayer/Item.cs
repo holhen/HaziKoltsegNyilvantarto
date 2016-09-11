@@ -19,6 +19,8 @@ namespace HáziKöltségNyilvántartó
             set { OnPropertyChanged(ref _id, value); }
         }
 
+        public int? csvId { get; set; }
+
         private string _name;
 
         public string Name
@@ -77,7 +79,7 @@ namespace HáziKöltségNyilvántartó
             if (obj is Item)
                 item = obj as Item;
             else return false;
-            if (item.Name == this.Name && item.LastValue == this.LastValue && item.IsIncome == this.IsIncome && item.CategoryId == this.CategoryId)
+            if (item.Id == this.Id && item.Name == this.Name && item.LastValue == this.LastValue && item.IsIncome == this.IsIncome && item.CategoryId == this.CategoryId)
                 return true;
             else return false;
         }

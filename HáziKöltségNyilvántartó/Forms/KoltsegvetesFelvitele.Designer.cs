@@ -1,4 +1,4 @@
-﻿namespace HáziKöltségNyilvántartó
+﻿namespace HáziKöltségNyilvántartó.Forms
 {
     partial class KoltsegvetesFelvitele
     {

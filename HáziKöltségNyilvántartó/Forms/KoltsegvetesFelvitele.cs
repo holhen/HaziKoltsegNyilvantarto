@@ -7,30 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HáziKöltségNyilvántartó.ViewModels;
 
-namespace HáziKöltségNyilvántartó
+namespace HáziKöltségNyilvántartó.Forms
 {
     public partial class KoltsegvetesFelvitele : Form
     {
-        private ISampleContext _context;
-        private List<Item> items;
-        private List<Category> categories;
         private AutoCompleteStringCollection nameCollection = new AutoCompleteStringCollection();
-        public List<Transaction> transactionList;
+        private KoltsegvetesFelviteleViewModel _viewModel;
 
-        public KoltsegvetesFelvitele(ISampleContext context)
+        public KoltsegvetesFelvitele (KoltsegvetesFelviteleViewModel viewModel)
         {
             InitializeComponent();
-            _context = context;
-            items = _context.Items.ToList();
-            categories = _context.Categories.ToList();
+            _viewModel = viewModel;
         }
 
         private void nameBox_Validated(object sender, EventArgs e)
         {
-            var query = items.Where(entry => entry.Name == nameBox.Text).Select(entry => entry.LastValue);
-            if (query.Any() && priceNumber.Value == 0)
-                priceNumber.Value = query.First();
+            int LastValue = _viewModel.GetLastValueOfItem(nameBox.Text);
+            if (LastValue != 0)
+                priceNumber.Value = LastValue;
             else
             {
                 priceNumber.Value = 0;
@@ -41,33 +37,9 @@ namespace HáziKöltségNyilvántartó
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Transaction transaction = new Transaction();
-            transaction.ItemId = items.Where(entry => entry.Name == nameBox.Text).Select(entry => entry.Id).FirstOrDefault();
-            transaction.IsIncome = income.Checked;
-            transaction.Value = (int)priceNumber.Value;
-            transaction.CreatedTime = DateTime.Now;
-            transaction.UserId = 1;
-            transactionList.Add(transaction);
+            _viewModel.CreateNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked);
             nameCollection.Add(nameBox.Text);
-            _context.Transactions.Add(transaction);
-            if (!items.Any(entry => entry.Name == nameBox.Text))
-            {
-                Item item = new Item()
-                {
-                    Name = nameBox.Text,
-                    LastValue = (int)priceNumber.Value,
-                    IsIncome = income.Checked,
-                    CategoryId = categories.Where(entry => entry.Name == "Default").Select(entry => entry.Id).First(),
-                };
-                _context.Items.Add(item);
-            }
-            else
-            {
-                Item item = _context.Items.Where(entry => entry.Name == nameBox.Name).First();
-                item.LastValue = (int)priceNumber.Value;
-                item.IsIncome = income.Checked;                
-            }
-            _context.SaveChanges();
+            _viewModel.AddOrEditItem(nameBox.Text, (int)priceNumber.Value, income.Checked);
             nameBox.Text = string.Empty;
             nameBox.Focus();
             priceNumber.Value = 0;
@@ -76,10 +48,15 @@ namespace HáziKöltségNyilvántartó
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            nameCollection.AddRange(items.Select(entry => entry.Name).ToArray());
+            nameCollection.AddRange(_viewModel.GetNamesFromDatabase());
             nameBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             nameBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             nameBox.AutoCompleteCustomSource = nameCollection;
+        }
+
+        public List<Transaction> GetTransactionList()
+        {
+            return _viewModel.transactionList;
         }
     }
 }

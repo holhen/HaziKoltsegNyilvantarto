@@ -22,11 +22,13 @@ namespace HáziKöltségNyilvántartó
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<SampleContext>().As<ISampleContext>().InstancePerLifetimeScope();
             builder.RegisterType<KoltsegvetesFelvitele>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<KoltsegvetesFelviteleViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<TermekekFelvitele>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<KoltsegvetesMegjelenites>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsForm>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<LoginForm>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<LoginViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<MainForm>().AsSelf().InstancePerLifetimeScope();
             Container = builder.Build();
             Application.EnableVisualStyles();

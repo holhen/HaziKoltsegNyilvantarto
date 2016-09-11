@@ -7,39 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HáziKöltségNyilvántartó.DataLayer;
+using HáziKöltségNyilvántartó.ViewModels;
+using HáziKöltségNyilvántartó.Exceptions;
 
 namespace HáziKöltségNyilvántartó.Forms
 {
     public partial class LoginForm : Form
     {
-        private ISampleContext _context;
-        public LoginForm(ISampleContext context)
+        private LoginViewModel _viewModel;
+        private string hash;
+        public LoginForm(LoginViewModel viewModel)
         {
             InitializeComponent();
-            _context = context;
-        }
-
-        private void belépés_Click(object sender, EventArgs e)
-        {
-            string password = _context.Users.Where(entry => entry.UserName == usernameBox.Text).Select(entry => entry.Password).FirstOrDefault();
-            if (string.IsNullOrEmpty(password))
-                MessageBox.Show("Nem szerepel az adatbázisban, kérem, regisztráljon!");
-            else if (password != passwordBox.Text)
-            {
-                MessageBox.Show("Helytelen jelszót adott meg.");
-            }
-            else
-            {
-                Close();
-            }
+            _viewModel = viewModel;
         }
 
         private void regisztráció_Click(object sender, EventArgs e)
         {
-            User user = new User { UserName = usernameBox.Text, Password = passwordBox.Text };
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            MessageBox.Show("Regisztráció sikeres.");
+            try
+            {
+                _viewModel.Registration(usernameBox.Text, passwordBox.Text, hash);
+            }
+            catch(RegistrationException re)
+            {
+                MessageBox.Show(re.Message);
+            }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    _viewModel.Login(passwordBox.Text, hash);
+                }
+                catch (LoginException le)
+                {
+                    MessageBox.Show(le.Message);
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void usernameBox_Validated(object sender, EventArgs e)
+        {
+            hash = _viewModel.GetCorrectPasswordHash(usernameBox.Text);
         }
     }
 }

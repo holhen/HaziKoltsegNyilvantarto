@@ -10,7 +10,7 @@ namespace HáziKöltségNyilvántartó
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int ItemId { get; set; }
+        public int? ItemId { get; set; }
         public int Value { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsIncome { get; set; }

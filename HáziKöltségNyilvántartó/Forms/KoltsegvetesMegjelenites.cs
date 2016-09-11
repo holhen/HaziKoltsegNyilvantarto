@@ -8,29 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
+using HáziKöltségNyilvántartó.ViewModels;
 
-namespace HáziKöltségNyilvántartó
+namespace HáziKöltségNyilvántartó.Forms
 {
     public partial class KoltsegvetesMegjelenites : Form
     {
-        private BindingList<Transaction> _transactionsList;
-        private ISampleContext _context;
-        public KoltsegvetesMegjelenites(ISampleContext context)
+        private BindingList<Transaction> _monthlyTransactionsBindingList;
+        private List<Transaction> _monthlyTransactionsList;
+        private KoltsegvetesMegjeleniteseViewModel _viewModel;
+        public KoltsegvetesMegjelenites(KoltsegvetesMegjeleniteseViewModel viewModel)
         {
             InitializeComponent();
-            _context = context;
+            _viewModel = viewModel;
         }
 
         private void KoltsegvetesMegjelenites_Load(object sender, EventArgs e)
         {
-            _transactionsList = new BindingList<Transaction>(_context.Transactions.Where(entry => entry.CreatedTime.Month == dateTimePicker1.Value.Month).ToList());
-            transactionBindingSource.DataSource = _transactionsList;
+            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            _monthlyTransactionsBindingList = new BindingList<Transaction>(_monthlyTransactionsList);
+            transactionBindingSource.DataSource = _monthlyTransactionsBindingList;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            _transactionsList = new BindingList<Transaction>(_context.Transactions.Where(entry => entry.CreatedTime.Month == dateTimePicker1.Value.Month).ToList());
-            transactionBindingSource.DataSource = _transactionsList;
+            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            _monthlyTransactionsBindingList.Clear();
+            foreach (var item in _monthlyTransactionsList)
+                _monthlyTransactionsBindingList.Add(item);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,8 +45,8 @@ namespace HáziKöltségNyilvántartó
             KoltsegvetesFelvitele kf = lifetimescope.Resolve<KoltsegvetesFelvitele>();
             if (kf.ShowDialog() == DialogResult.Cancel)
             {
-                foreach (var item in kf.transactionList)
-                    _transactionsList.Add(item);
+                foreach (var item in kf.GetTransactionList())
+                    _monthlyTransactionsBindingList.Add(item);
             }
             kf.FormClosed += delegate
             {

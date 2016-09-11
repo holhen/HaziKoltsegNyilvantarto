@@ -61,6 +61,7 @@
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(160, 20);
             this.usernameBox.TabIndex = 2;
+            this.usernameBox.Validated += new System.EventHandler(this.usernameBox_Validated);
             // 
             // passwordBox
             // 
@@ -79,7 +80,6 @@
             this.belépés.TabIndex = 4;
             this.belépés.Text = "Belépés";
             this.belépés.UseVisualStyleBackColor = true;
-            this.belépés.Click += new System.EventHandler(this.belépés_Click);
             // 
             // cancel
             // 
@@ -117,6 +117,7 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

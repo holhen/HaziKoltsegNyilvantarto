@@ -30,9 +30,6 @@ C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\bin\Debug\FluentAssertions.Core.xml
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\bin\Debug\Moq.xml
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\bin\Debug\nunit.framework.xml
-C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.csprojResolveAssemblyReference.cache
-C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.KoltsegvetesFelvitele.resources
-C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.KoltsegvetesMegjelenites.resources
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.LoginForm.resources
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.MainForm.resources
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.StatisticsForm.resources
@@ -42,3 +39,8 @@ C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.csproj.GenerateResource.Cache
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.exe
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.pdb
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Migrations.AddColumn.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Migrations.AddColumn1.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Migrations.Nullable.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.KoltsegvetesFelvitele.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.KoltsegvetesMegjelenites.resources
