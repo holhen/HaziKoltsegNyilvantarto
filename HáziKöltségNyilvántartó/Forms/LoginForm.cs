@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HáziKöltségNyilvántartó.DataTables;
 using HáziKöltségNyilvántartó.ViewModels;
 using HáziKöltségNyilvántartó.Exceptions;
 
@@ -43,7 +42,7 @@ namespace HáziKöltségNyilvántartó.Forms
                 try
                 {
                     hash = _viewModel.GetCorrectPasswordHash(usernameBox.Text);
-                    _viewModel.Login(passwordBox.Text, hash);
+                    _viewModel.Login(usernameBox.Text, passwordBox.Text, hash);
                 }
                 catch (LoginException le)
                 {

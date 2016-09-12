@@ -5,14 +5,14 @@ namespace HáziKöltségNyilvántartó.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HáziKöltségNyilvántartó.SampleContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SampleContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HáziKöltségNyilvántartó.SampleContext context)
+        protected override void Seed(SampleContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -26,17 +26,24 @@ namespace HáziKöltségNyilvántartó.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Categories.Add(new Category
+            if (!context.Categories.Any(entry => entry.Name == "Default"))
             {
-                Id = 1,
-                Name = "Default"
-            });
-            context.Users.Add(new User
+                context.Categories.Add(new Category
+                {
+                    Id = 1,
+                    Name = "Default"
+                });
+            }
+
+            if (!context.Users.Any(entry => entry.UserName == "admin"))
             {
-                Id = 1,
-                UserName = "admin",
-                Password = "admin"
-            });
+                context.Users.Add(new User
+                {
+                    Id = 1,
+                    UserName = "admin",
+                    Password = PasswordHelper.EncryptPassword("admin")
+                });
+            }
         }
     }
 }
