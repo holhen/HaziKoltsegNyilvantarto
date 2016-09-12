@@ -24,7 +24,9 @@ namespace HáziKöltségNyilvántartó
             builder.RegisterType<KoltsegvetesFelvitele>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<KoltsegvetesFelviteleViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<TermekekFelvitele>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<KoltsegvetesMegjelenites>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<TermekekFelviteleViewModel>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<KoltsegvetesMegjelenitese>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<KoltsegvetesMegjeleniteseViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsForm>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsViewModel>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<LoginForm>().AsSelf().InstancePerLifetimeScope();

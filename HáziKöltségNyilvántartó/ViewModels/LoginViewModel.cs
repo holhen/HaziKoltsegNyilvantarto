@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HáziKöltségNyilvántartó.DataLayer;
+using HáziKöltségNyilvántartó.DataTables;
 using HáziKöltségNyilvántartó.Exceptions;
 
 namespace HáziKöltségNyilvántartó.ViewModels
@@ -12,16 +12,14 @@ namespace HáziKöltségNyilvántartó.ViewModels
     public class LoginViewModel
     {
         private ISampleContext _context;
-        private List<User> _users;
         public LoginViewModel(ISampleContext context)
         {
             _context = context;
-            _users = _context.Users.ToList();
         }
 
         public string GetCorrectPasswordHash(string username)
         {
-            return _users.Where(entry => entry.UserName == username).Select(entry => entry.Password).FirstOrDefault();
+            return _context.Users.Where(entry => entry.UserName == username).Select(entry => entry.Password).FirstOrDefault();
         }
 
         public void Login(string password, string hash)

@@ -35,7 +35,7 @@ namespace HáziKöltségNyilvántartó.Forms
         private void költségvetésMegjelenítéseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var lifetimeScope = Program.Container.BeginLifetimeScope();
-            KoltsegvetesMegjelenites km = lifetimeScope.Resolve<KoltsegvetesMegjelenites>();
+            KoltsegvetesMegjelenitese km = lifetimeScope.Resolve<KoltsegvetesMegjelenitese>();
             km.MdiParent = this;
             km.WindowState = FormWindowState.Maximized;
             km.Show();

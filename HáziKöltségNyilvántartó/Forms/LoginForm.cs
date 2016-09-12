@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HáziKöltségNyilvántartó.DataLayer;
+using HáziKöltségNyilvántartó.DataTables;
 using HáziKöltségNyilvántartó.ViewModels;
 using HáziKöltségNyilvántartó.Exceptions;
 
@@ -27,6 +27,7 @@ namespace HáziKöltségNyilvántartó.Forms
         {
             try
             {
+                hash = _viewModel.GetCorrectPasswordHash(usernameBox.Text);
                 _viewModel.Registration(usernameBox.Text, passwordBox.Text, hash);
             }
             catch(RegistrationException re)
@@ -41,6 +42,7 @@ namespace HáziKöltségNyilvántartó.Forms
             {
                 try
                 {
+                    hash = _viewModel.GetCorrectPasswordHash(usernameBox.Text);
                     _viewModel.Login(passwordBox.Text, hash);
                 }
                 catch (LoginException le)
@@ -49,11 +51,6 @@ namespace HáziKöltségNyilvántartó.Forms
                     e.Cancel = true;
                 }
             }
-        }
-
-        private void usernameBox_Validated(object sender, EventArgs e)
-        {
-            hash = _viewModel.GetCorrectPasswordHash(usernameBox.Text);
         }
     }
 }

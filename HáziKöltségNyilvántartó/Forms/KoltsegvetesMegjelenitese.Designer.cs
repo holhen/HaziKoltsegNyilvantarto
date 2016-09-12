@@ -1,6 +1,6 @@
 ﻿namespace HáziKöltségNyilvántartó.Forms
 {
-    partial class KoltsegvetesMegjelenites
+    partial class KoltsegvetesMegjelenitese
     {
         /// <summary>
         /// Required designer variable.

@@ -53,16 +53,20 @@ namespace HáziKöltségNyilvántartó
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            List<ItemCategory> icl = _viewModel.ReadCsvFile();
-            _itemCategoryList.Clear();
-            foreach (var item in icl)
-                _itemCategoryList.Add(item);
+            List<ItemCategory> icl = _viewModel.ReadCsvFile((string)e.Argument);
+            Invoke(new Action(() =>
+              {
+                  _itemCategoryList.Clear();
+                  foreach (var item in icl)
+                      _itemCategoryList.Add(item);
+              }));
             _viewModel.SaveDataToDatabase(_itemCategoryList.ToList());
+              
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            _viewModel.SaveCsvFile(_itemCategoryList.ToList());
+            _viewModel.SaveCsvFile(_itemCategoryList.ToList(), (string)e.Argument);
         }
 
         private void cSVFájlbaToolStripMenuItem_Click(object sender, EventArgs e)

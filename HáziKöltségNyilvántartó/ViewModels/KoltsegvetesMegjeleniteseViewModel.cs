@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace HáziKöltségNyilvántartó.ViewModels
 {
-    public class KoltsegvetesMegjeleniteseViewModel
+    public class KoltsegvetesMegjeleniteseViewModel: BaseViewModel
     {
-        private ISampleContext _context;
-        public KoltsegvetesMegjeleniteseViewModel(ISampleContext context)
+        public KoltsegvetesMegjeleniteseViewModel(ISampleContext context): base(context)
         {
-            _context = context;
         }
 
         public List<Transaction> GetMonthlyTransactionsList(int year, int month)
         {
-            return _context.Transactions.Where(entry => entry.CreatedTime.Year == year && entry.CreatedTime.Month == month).ToList();
+            return transactions.Where(entry => entry.CreatedTime.Year == year && entry.CreatedTime.Month == month).ToList();
         }
     }
 }

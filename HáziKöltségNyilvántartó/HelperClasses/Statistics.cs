@@ -12,7 +12,5 @@ namespace HáziKöltségNyilvántartó
         public int MonthlySpending { get; set; }
         public int MonthlyIncome { get; set; }
         public int MonthlyDifference { get; set; }
-        public int TotalByCategory { get; set; }
-        public int CategoryPercentage { get; set; }
     }
 }

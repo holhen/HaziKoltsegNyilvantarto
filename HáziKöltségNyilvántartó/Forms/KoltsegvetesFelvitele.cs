@@ -37,7 +37,7 @@ namespace HáziKöltségNyilvántartó.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _viewModel.CreateNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked);
+            _viewModel.AddNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked, DateTime.Now);
             nameCollection.Add(nameBox.Text);
             _viewModel.AddOrEditItem(nameBox.Text, (int)priceNumber.Value, income.Checked);
             nameBox.Text = string.Empty;
@@ -56,7 +56,7 @@ namespace HáziKöltségNyilvántartó.Forms
 
         public List<Transaction> GetTransactionList()
         {
-            return _viewModel.transactionList;
+            return _viewModel.newlyAddedTransactions;
         }
     }
 }

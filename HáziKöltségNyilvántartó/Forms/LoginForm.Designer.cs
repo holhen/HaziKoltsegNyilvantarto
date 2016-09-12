@@ -61,7 +61,6 @@
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(160, 20);
             this.usernameBox.TabIndex = 2;
-            this.usernameBox.Validated += new System.EventHandler(this.usernameBox_Validated);
             // 
             // passwordBox
             // 

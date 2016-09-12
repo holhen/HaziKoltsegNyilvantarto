@@ -43,4 +43,5 @@ C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Migrations.AddColumn1.resources
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Migrations.Nullable.resources
 C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.KoltsegvetesFelvitele.resources
-C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.KoltsegvetesMegjelenites.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.Forms.KoltsegvetesMegjelenitese.resources
+C:\Users\holhe\Documents\GitHub\KoltsegNyilvantarto\HáziKöltségNyilvántartó\obj\Debug\HáziKöltségNyilvántartó.csprojResolveAssemblyReference.cache

@@ -12,12 +12,12 @@ using HáziKöltségNyilvántartó.ViewModels;
 
 namespace HáziKöltségNyilvántartó.Forms
 {
-    public partial class KoltsegvetesMegjelenites : Form
+    public partial class KoltsegvetesMegjelenitese : Form
     {
         private BindingList<Transaction> _monthlyTransactionsBindingList;
         private List<Transaction> _monthlyTransactionsList;
         private KoltsegvetesMegjeleniteseViewModel _viewModel;
-        public KoltsegvetesMegjelenites(KoltsegvetesMegjeleniteseViewModel viewModel)
+        public KoltsegvetesMegjelenitese(KoltsegvetesMegjeleniteseViewModel viewModel)
         {
             InitializeComponent();
             _viewModel = viewModel;
@@ -25,14 +25,14 @@ namespace HáziKöltségNyilvántartó.Forms
 
         private void KoltsegvetesMegjelenites_Load(object sender, EventArgs e)
         {
-            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month);
             _monthlyTransactionsBindingList = new BindingList<Transaction>(_monthlyTransactionsList);
             transactionBindingSource.DataSource = _monthlyTransactionsBindingList;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month);
             _monthlyTransactionsBindingList.Clear();
             foreach (var item in _monthlyTransactionsList)
                 _monthlyTransactionsBindingList.Add(item);
