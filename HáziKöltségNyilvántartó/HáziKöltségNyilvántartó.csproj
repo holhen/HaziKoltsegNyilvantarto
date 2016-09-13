@@ -118,6 +118,7 @@
     <Compile Include="DataTables\Category.cs" />
     <Compile Include="HelperClasses\CategoryStatistics.cs" />
     <Compile Include="HelperClasses\ItemCategory.cs" />
+    <Compile Include="HelperClasses\ItemTransaction.cs" />
     <Compile Include="HelperClasses\LoggedInUser.cs" />
     <Compile Include="HelperClasses\PasswordHelper.cs" />
     <Compile Include="HelperClasses\Statistics.cs" />
@@ -209,6 +210,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CategoryStatistics.datasource" />
+    <None Include="Properties\DataSources\HáziKöltségNyilvántartó.HelperClasses.ItemTransaction.datasource" />
     <None Include="Properties\DataSources\Item.datasource" />
     <None Include="Properties\DataSources\ItemCategory.datasource" />
     <None Include="Properties\DataSources\Statistics.datasource" />

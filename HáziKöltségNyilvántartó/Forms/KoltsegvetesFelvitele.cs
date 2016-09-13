@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HáziKöltségNyilvántartó.ViewModels;
+using HáziKöltségNyilvántartó.HelperClasses;
 
 namespace HáziKöltségNyilvántartó.Forms
 {
@@ -37,12 +38,19 @@ namespace HáziKöltségNyilvántartó.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _viewModel.AddOrEditItem(nameBox.Text, (int)priceNumber.Value, income.Checked);
             if (!nameCollection.Contains(nameBox.Text))
             {
                 nameCollection.Add(nameBox.Text);
             }
-            _viewModel.AddNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked, DateTime.Today);
+            try
+            {
+                _viewModel.AddOrEditItem(nameBox.Text, (int)priceNumber.Value, income.Checked);
+                _viewModel.AddNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked, DateTime.Today);
+            }
+            catch (ArgumentNullException ane)
+            {
+                MessageBox.Show(ane.Message);
+            }
             nameBox.Text = string.Empty;
             nameBox.Focus();
             priceNumber.Value = 0;
@@ -57,7 +65,7 @@ namespace HáziKöltségNyilvántartó.Forms
             nameBox.AutoCompleteCustomSource = nameCollection;
         }
 
-        public List<Transaction> GetTransactionList()
+        public List<ItemTransaction> GetTransactionList()
         {
             return _viewModel.newlyAddedTransactions;
         }

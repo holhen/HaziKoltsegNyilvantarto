@@ -22,6 +22,11 @@ namespace HáziKöltségNyilvántartó.ViewModels
             {
                 AddNonExistingCategory(listitem.CategoryName);
 
+                if (listitem.CreatedDate.Day == 1)
+                {
+                    AddNewItem("Fizetés", 200000, "Default", true);
+                    AddNewTransaction("Fizetés", 200000, true, listitem.CreatedDate);
+                }
                 Item item = _context.Items.Where(entry => entry.csvId == listitem.Id).FirstOrDefault();
                 if (item == null)
                 {

@@ -30,31 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.categoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalByCategoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryPercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryStatisticsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalByCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryStatisticsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.monthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlySpendingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyIncomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyDifferenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statisticsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalByCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryStatisticsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.categoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalByCategoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryPercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryStatisticsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statisticsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -75,86 +75,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1131, 194);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryNameDataGridViewTextBoxColumn,
-            this.totalByCategoryDataGridViewTextBoxColumn,
-            this.categoryPercentageDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.categoryStatisticsBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 299);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(432, 206);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryNameDataGridViewTextBoxColumn1,
-            this.totalByCategoryDataGridViewTextBoxColumn1,
-            this.categoryPercentageDataGridViewTextBoxColumn1});
-            this.dataGridView3.DataSource = this.categoryStatisticsBindingSource2;
-            this.dataGridView3.Location = new System.Drawing.Point(688, 301);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(466, 204);
-            this.dataGridView3.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(32, 558);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
-            // categoryNameDataGridViewTextBoxColumn1
-            // 
-            this.categoryNameDataGridViewTextBoxColumn1.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn1.HeaderText = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn1.Name = "categoryNameDataGridViewTextBoxColumn1";
-            // 
-            // totalByCategoryDataGridViewTextBoxColumn1
-            // 
-            this.totalByCategoryDataGridViewTextBoxColumn1.DataPropertyName = "TotalByCategory";
-            this.totalByCategoryDataGridViewTextBoxColumn1.HeaderText = "TotalByCategory";
-            this.totalByCategoryDataGridViewTextBoxColumn1.Name = "totalByCategoryDataGridViewTextBoxColumn1";
-            // 
-            // categoryPercentageDataGridViewTextBoxColumn1
-            // 
-            this.categoryPercentageDataGridViewTextBoxColumn1.DataPropertyName = "CategoryPercentage";
-            this.categoryPercentageDataGridViewTextBoxColumn1.HeaderText = "CategoryPercentage";
-            this.categoryPercentageDataGridViewTextBoxColumn1.Name = "categoryPercentageDataGridViewTextBoxColumn1";
-            // 
-            // categoryStatisticsBindingSource2
-            // 
-            this.categoryStatisticsBindingSource2.DataSource = typeof(HáziKöltségNyilvántartó.CategoryStatistics);
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            // 
-            // totalByCategoryDataGridViewTextBoxColumn
-            // 
-            this.totalByCategoryDataGridViewTextBoxColumn.DataPropertyName = "TotalByCategory";
-            this.totalByCategoryDataGridViewTextBoxColumn.HeaderText = "TotalByCategory";
-            this.totalByCategoryDataGridViewTextBoxColumn.Name = "totalByCategoryDataGridViewTextBoxColumn";
-            // 
-            // categoryPercentageDataGridViewTextBoxColumn
-            // 
-            this.categoryPercentageDataGridViewTextBoxColumn.DataPropertyName = "CategoryPercentage";
-            this.categoryPercentageDataGridViewTextBoxColumn.HeaderText = "CategoryPercentage";
-            this.categoryPercentageDataGridViewTextBoxColumn.Name = "categoryPercentageDataGridViewTextBoxColumn";
-            // 
-            // categoryStatisticsBindingSource
-            // 
-            this.categoryStatisticsBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.CategoryStatistics);
             // 
             // monthDataGridViewTextBoxColumn
             // 
@@ -183,6 +103,87 @@
             // statisticsBindingSource
             // 
             this.statisticsBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.Statistics);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryNameDataGridViewTextBoxColumn,
+            this.totalByCategoryDataGridViewTextBoxColumn,
+            this.categoryPercentageDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.categoryStatisticsBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(23, 299);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(432, 206);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            // 
+            // totalByCategoryDataGridViewTextBoxColumn
+            // 
+            this.totalByCategoryDataGridViewTextBoxColumn.DataPropertyName = "TotalByCategory";
+            this.totalByCategoryDataGridViewTextBoxColumn.HeaderText = "TotalByCategory";
+            this.totalByCategoryDataGridViewTextBoxColumn.Name = "totalByCategoryDataGridViewTextBoxColumn";
+            // 
+            // categoryPercentageDataGridViewTextBoxColumn
+            // 
+            this.categoryPercentageDataGridViewTextBoxColumn.DataPropertyName = "CategoryPercentage";
+            this.categoryPercentageDataGridViewTextBoxColumn.HeaderText = "CategoryPercentage";
+            this.categoryPercentageDataGridViewTextBoxColumn.Name = "categoryPercentageDataGridViewTextBoxColumn";
+            // 
+            // categoryStatisticsBindingSource
+            // 
+            this.categoryStatisticsBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.CategoryStatistics);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryNameDataGridViewTextBoxColumn1,
+            this.totalByCategoryDataGridViewTextBoxColumn1,
+            this.categoryPercentageDataGridViewTextBoxColumn1});
+            this.dataGridView3.DataSource = this.categoryStatisticsBindingSource2;
+            this.dataGridView3.Location = new System.Drawing.Point(688, 301);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(466, 204);
+            this.dataGridView3.TabIndex = 2;
+            // 
+            // categoryNameDataGridViewTextBoxColumn1
+            // 
+            this.categoryNameDataGridViewTextBoxColumn1.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn1.HeaderText = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn1.Name = "categoryNameDataGridViewTextBoxColumn1";
+            // 
+            // totalByCategoryDataGridViewTextBoxColumn1
+            // 
+            this.totalByCategoryDataGridViewTextBoxColumn1.DataPropertyName = "TotalByCategory";
+            this.totalByCategoryDataGridViewTextBoxColumn1.HeaderText = "TotalByCategory";
+            this.totalByCategoryDataGridViewTextBoxColumn1.Name = "totalByCategoryDataGridViewTextBoxColumn1";
+            // 
+            // categoryPercentageDataGridViewTextBoxColumn1
+            // 
+            this.categoryPercentageDataGridViewTextBoxColumn1.DataPropertyName = "CategoryPercentage";
+            this.categoryPercentageDataGridViewTextBoxColumn1.HeaderText = "CategoryPercentage";
+            this.categoryPercentageDataGridViewTextBoxColumn1.Name = "categoryPercentageDataGridViewTextBoxColumn1";
+            // 
+            // categoryStatisticsBindingSource2
+            // 
+            this.categoryStatisticsBindingSource2.DataSource = typeof(HáziKöltségNyilvántartó.CategoryStatistics);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(32, 558);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -228,11 +229,11 @@
             this.Text = "Statistics";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryStatisticsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statisticsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

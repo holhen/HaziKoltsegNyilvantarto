@@ -34,7 +34,8 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 Value = priceOfItem,
                 CreatedTime = createdTime,
                 UserId = LoggedInUser.UserID
-        };
+             };
+            transactions.Add(transaction);
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
         }
@@ -49,6 +50,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 IsIncome = isIncome,
                 CategoryId = _context.Categories.Where(entry => entry.Name == categoryName).Select(entry => entry.Id).First(),
             };
+            items.Add(_item);
             _context.Items.Add(_item);
             _context.SaveChanges();
         }
@@ -69,6 +71,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
             if (!_context.Categories.Any(entry => entry.Name == categoryName))
             {
                 Category category = new Category() { Name = categoryName };
+                categories.Add(category);
                 _context.Categories.Add(category);
                 _context.SaveChanges();
             }

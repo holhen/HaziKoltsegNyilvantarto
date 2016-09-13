@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
 using HáziKöltségNyilvántartó.ViewModels;
+using HáziKöltségNyilvántartó.HelperClasses;
 
 namespace HáziKöltségNyilvántartó.Forms
 {
     public partial class KoltsegvetesMegjelenitese : Form
     {
-        private BindingList<Transaction> _monthlyTransactionsBindingList;
-        private List<Transaction> _monthlyTransactionsList;
+        private BindingList<ItemTransaction> _monthlyTransactionsBindingList;
+        private List<ItemTransaction> _monthlyTransactionsList;
         private KoltsegvetesMegjeleniteseViewModel _viewModel;
         public KoltsegvetesMegjelenitese(KoltsegvetesMegjeleniteseViewModel viewModel)
         {
@@ -26,8 +27,8 @@ namespace HáziKöltségNyilvántartó.Forms
         private void KoltsegvetesMegjelenites_Load(object sender, EventArgs e)
         {
             _monthlyTransactionsList = _viewModel.GetMonthlyTransactionsList(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month);
-            _monthlyTransactionsBindingList = new BindingList<Transaction>(_monthlyTransactionsList);
-            transactionBindingSource.DataSource = _monthlyTransactionsBindingList;
+            _monthlyTransactionsBindingList = new BindingList<ItemTransaction>(_monthlyTransactionsList);
+            itemTransactionBindingSource.DataSource = _monthlyTransactionsBindingList;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -45,8 +46,8 @@ namespace HáziKöltségNyilvántartó.Forms
             KoltsegvetesFelvitele kf = lifetimescope.Resolve<KoltsegvetesFelvitele>();
             if (kf.ShowDialog() == DialogResult.Cancel)
             {
-                foreach (var item in kf.GetTransactionList())
-                    _monthlyTransactionsBindingList.Add(item);
+                foreach (var transaction in kf.GetTransactionList())
+                    _monthlyTransactionsBindingList.Add(transaction);
             }
             kf.FormClosed += delegate
             {

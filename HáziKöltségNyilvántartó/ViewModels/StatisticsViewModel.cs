@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HáziKöltségNyilvántartó.HelperClasses;
 
 namespace HáziKöltségNyilvántartó.ViewModels
 {
@@ -68,6 +69,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
             var query = from cat in this.categories
                         join item in this.items on cat.Id equals item.CategoryId
                         join trans in transactions on item.Id equals trans.ItemId
+                        where trans.UserId == LoggedInUser.UserID
                         group new { cat.Name, trans.Value } by cat.Name into g
                         let sum = g.Sum(entry => entry.Value)
                         orderby sum descending

@@ -9,69 +9,15 @@ using System.Threading.Tasks;
 
 namespace HáziKöltségNyilvántartó
 {
-    public class Item: INotifyPropertyChanged
+    public class Item
     {
-        private int _id;
-
-        public int Id
-        {
-            get { return _id; }
-            set { OnPropertyChanged(ref _id, value); }
-        }
-
-        public int? csvId { get; set; }
-
-        private string _name;
-
-        public string Name
-        {
-            get { return _name; }
-            set { OnPropertyChanged(ref _name, value); }
-        }
-
-        private int _categoryId;
-
-        public int CategoryId
-        {
-            get { return _categoryId; }
-            set { OnPropertyChanged(ref _categoryId, value); }
-        }
-
-        private int _lastValue;
-
-        public int LastValue
-        {
-            get { return _lastValue; }
-            set { OnPropertyChanged(ref _lastValue, value); }
-        }
-
-        private bool _isIncome;
-
-        public bool IsIncome
-        {
-            get { return _isIncome; }
-            set { OnPropertyChanged(ref _isIncome, value); }
-        }
-
-        public List<Category> Category { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this,
-                new PropertyChangedEventArgs(propertyName));
-        }
-        protected virtual bool OnPropertyChanged<T>(
-            ref T valueRef, T newValue,
-            [CallerMemberName] string propertyName = null)
-        {
-            if (Equals(valueRef, newValue)) return false;
-            valueRef = newValue;
-            PropertyChanged?.Invoke(this,
-                new PropertyChangedEventArgs(propertyName));
-            return true;
-        }
+       public int Id { get; set; }
+       public int? csvId { get; set; }
+       public string Name { get; set; }
+       public int CategoryId { get; set; }
+       public int LastValue { get; set; }
+       public bool IsIncome { get; set; }
+       public List<Category> Category { get; set; }
 
         public override bool Equals(object obj)
         {
