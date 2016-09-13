@@ -7,13 +7,13 @@ namespace HáziKöltségNyilvántartó.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Nullable : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Nullable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609111014031_Nullable"; }
+            get { return "201609130814590_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,13 +7,13 @@ namespace HáziKöltségNyilvántartó.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddColumn : IMigrationMetadata
+    public sealed partial class Nullable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddColumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Nullable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609110907494_AddColumn"; }
+            get { return "201609130855007_Nullable"; }
         }
         
         string IMigrationMetadata.Source

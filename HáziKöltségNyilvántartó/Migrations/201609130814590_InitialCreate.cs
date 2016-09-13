@@ -24,6 +24,7 @@ namespace HáziKöltségNyilvántartó.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        csvId = c.Int(),
                         Name = c.String(),
                         CategoryId = c.Int(nullable: false),
                         LastValue = c.Int(nullable: false),
@@ -37,13 +38,13 @@ namespace HáziKöltségNyilvántartó.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.Int(nullable: false),
-                        ItemId = c.Int(nullable: false),
+                        ItemId = c.Int(),
                         Value = c.Int(nullable: false),
                         CreatedTime = c.DateTime(nullable: false),
                         IsIncome = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Items", t => t.ItemId, cascadeDelete: true)
+                .ForeignKey("dbo.Items", t => t.ItemId)
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.ItemId);

@@ -34,7 +34,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 Value = priceOfItem,
                 CreatedTime = createdTime,
                 UserId = LoggedInUser.UserID
-        };
+            };
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
         }
