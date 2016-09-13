@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HáziKöltségNyilvántartó.DataTables;
 using HáziKöltségNyilvántartó.Exceptions;
+using HáziKöltségNyilvántartó.HelperClasses;
 
 namespace HáziKöltségNyilvántartó.ViewModels
 {
@@ -22,7 +22,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
             return _context.Users.Where(entry => entry.UserName == username).Select(entry => entry.Password).FirstOrDefault();
         }
 
-        public void Login(string password, string hash)
+        public void Login(string username, string password, string hash)
         {
             if (string.IsNullOrEmpty(hash))
             {
@@ -31,6 +31,10 @@ namespace HáziKöltségNyilvántartó.ViewModels
             else if (!PasswordHelper.CheckPassword(password, hash))
             {
                 throw new LoginException("Helytelen jelszót adott meg.");
+            }
+            else
+            {
+                LoggedInUser.UserID = _context.Users.Where(entry => entry.UserName == username).Select(entry => entry.Id).First();
             }
         }
 

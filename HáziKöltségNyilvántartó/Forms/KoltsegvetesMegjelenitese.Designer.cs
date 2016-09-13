@@ -45,6 +45,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -57,13 +59,13 @@
             this.dataGridView1.DataSource = this.transactionBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(767, 341);
+            this.dataGridView1.Size = new System.Drawing.Size(671, 223);
             this.dataGridView1.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(21, 401);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 277);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 1;
@@ -71,8 +73,8 @@
             // 
             // button1
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(569, 401);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(538, 278);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 23);
             this.button1.TabIndex = 2;
@@ -120,21 +122,20 @@
             // 
             this.transactionBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.Transaction);
             // 
-            // KoltsegvetesMegjelenites
+            // KoltsegvetesMegjelenitese
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 461);
+            this.ClientSize = new System.Drawing.Size(695, 325);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "KoltsegvetesMegjelenites";
+            this.Name = "KoltsegvetesMegjelenitese";
             this.Text = "Havi Költségvetés";
             this.Load += new System.EventHandler(this.KoltsegvetesMegjelenites_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

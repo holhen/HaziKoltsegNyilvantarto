@@ -18,6 +18,7 @@ namespace HáziKöltségNyilvántartó
         {
             InitializeComponent();
             _viewModel = viewModel;
+            this.Dock = DockStyle.Fill;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
