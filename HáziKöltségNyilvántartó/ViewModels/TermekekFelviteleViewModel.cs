@@ -17,8 +17,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
 
         public void SaveDataToDatabase(List<ItemCategory> itemCategoryList)
         {
-            DateTime createdDate = new DateTime(2014, 1, 1);
-            int i = 0;
+           
             foreach (var listitem in itemCategoryList)
             {
                 AddNonExistingCategory(listitem.CategoryName);
@@ -26,10 +25,8 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 Item item = _context.Items.Where(entry => entry.csvId == listitem.Id).FirstOrDefault();
                 if (item == null)
                 {
-                    AddNewItem(listitem.Name, listitem.Value, false, listitem.Id);
+                    AddNewItem(listitem.Name, listitem.Value, listitem.CategoryName, false, listitem.Id);
                     AddNewTransaction(listitem.Name, listitem.Value, false, listitem.CreatedDate);
-                    createdDate.AddDays(i);
-                    i++;
                 }
                 else if (!item.Equals(listitem))
                 {
@@ -96,6 +93,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 {
                     writer.WriteRecord(itemCategory);
                 }
+                MessageBox.Show("Az adatokat sikeresen mentettük.");
             }
         }
     }

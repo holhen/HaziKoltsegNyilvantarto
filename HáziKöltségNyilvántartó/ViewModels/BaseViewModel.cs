@@ -29,7 +29,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
         {
             transaction = new Transaction()
             {
-                ItemId = items.Where(entry => entry.Name == nameOfItem).Select(entry => entry.Id).FirstOrDefault(),
+                ItemId = _context.Items.Where(entry => entry.Name == nameOfItem).Select(entry => entry.Id).FirstOrDefault(),
                 IsIncome = isIncome,
                 Value = priceOfItem,
                 CreatedTime = createdTime,
@@ -39,7 +39,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
             _context.SaveChanges();
         }
 
-        public virtual void AddNewItem(string nameOfItem, int priceOfItem, bool isIncome, int? Id = 0)
+        public virtual void AddNewItem(string nameOfItem, int priceOfItem, string categoryName, bool isIncome, int? Id = 0)
         {
             _item = new Item()
             {
@@ -47,7 +47,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 Name = nameOfItem,
                 LastValue = priceOfItem,
                 IsIncome = isIncome,
-                CategoryId = categories.Where(entry => entry.Name == "Default").Select(entry => entry.Id).First(),
+                CategoryId = _context.Categories.Where(entry => entry.Name == categoryName).Select(entry => entry.Id).First(),
             };
             _context.Items.Add(_item);
             _context.SaveChanges();

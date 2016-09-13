@@ -24,6 +24,7 @@ namespace HáziKöltségNyilvántartó.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        csvId = c.Int(),
                         Name = c.String(),
                         CategoryId = c.Int(nullable: false),
                         LastValue = c.Int(nullable: false),

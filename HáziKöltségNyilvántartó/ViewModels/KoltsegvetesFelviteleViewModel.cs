@@ -29,7 +29,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
         public override void AddNewTransaction(string nameOfItem, int priceOfItem, bool isIncome, DateTime createdTime)
         {
             base.AddNewTransaction(nameOfItem,priceOfItem,isIncome, createdTime);
-            _context.Transactions.Add(transaction);
+            newlyAddedTransactions.Add(transaction);
         }
 
         public void AddOrEditItem(string nameOfItem, int priceOfItem, bool isIncome)
@@ -37,7 +37,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
             Item item = _context.Items.Where(entry => entry.Name == nameOfItem).FirstOrDefault();
             if (item == null)
             {
-                AddNewItem(nameOfItem, priceOfItem, isIncome);
+                AddNewItem(nameOfItem, priceOfItem, "Default", isIncome);
             }
             else
             {
