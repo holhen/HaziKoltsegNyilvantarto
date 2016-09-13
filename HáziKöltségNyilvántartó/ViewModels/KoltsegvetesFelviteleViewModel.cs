@@ -29,7 +29,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
         public override void AddNewTransaction(string nameOfItem, int priceOfItem, bool isIncome, DateTime createdTime)
         {
             base.AddNewTransaction(nameOfItem,priceOfItem,isIncome, createdTime);
-            newlyAddedTransactions.Add(transaction);
+            _context.Transactions.Add(transaction);
         }
 
         public void AddOrEditItem(string nameOfItem, int priceOfItem, bool isIncome)

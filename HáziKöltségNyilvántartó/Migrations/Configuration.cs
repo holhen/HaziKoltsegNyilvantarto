@@ -5,14 +5,14 @@ namespace HáziKöltségNyilvántartó.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HáziKöltségNyilvántartó.SampleContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SampleContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HáziKöltségNyilvántartó.SampleContext context)
+        protected override void Seed(SampleContext context)
         {
             //  This method will be called after migrating to the latest version.
 

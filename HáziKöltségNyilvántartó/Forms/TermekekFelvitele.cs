@@ -53,6 +53,8 @@ namespace HáziKöltségNyilvántartó
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            try
+            {
                 List<ItemCategory> icl = _viewModel.ReadCsvFile((string)e.Argument);
                 Invoke(new Action(() =>
                   {
@@ -61,6 +63,11 @@ namespace HáziKöltségNyilvántartó
                           _itemCategoryList.Add(item);
                   }));
                 _viewModel.SaveDataToDatabase(_itemCategoryList.ToList());
+            }
+            catch
+            {
+                MessageBox.Show("Nem megfelelő fájlt adott meg.");
+            }
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
