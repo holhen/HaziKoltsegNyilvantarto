@@ -20,6 +20,7 @@ namespace HáziKöltségNyilvántartó.ViewModels
            
             foreach (var listitem in itemCategoryList)
             {
+                AddNonExistingCategory("Default");
                 AddNonExistingCategory(listitem.CategoryName);
 
                 if (listitem.CreatedDate.Day == 1)
