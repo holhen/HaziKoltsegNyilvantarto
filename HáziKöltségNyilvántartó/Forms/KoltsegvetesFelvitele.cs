@@ -51,6 +51,12 @@ namespace HáziKöltségNyilvántartó.Forms
             {
                 MessageBox.Show(ane.Message);
             }
+            catch (InvalidOperationException ioe)
+            {
+                _viewModel.AddNonExistingCategory("Default");
+                _viewModel.AddOrEditItem(nameBox.Text, (int)priceNumber.Value, income.Checked);
+                _viewModel.AddNewTransaction(nameBox.Text, (int)priceNumber.Value, income.Checked, DateTime.Today);
+            }
             nameBox.Text = string.Empty;
             nameBox.Focus();
             priceNumber.Value = 0;
