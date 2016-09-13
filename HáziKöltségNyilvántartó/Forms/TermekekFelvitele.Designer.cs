@@ -30,7 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fájlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mentésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,14 +46,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -62,18 +62,44 @@
             this.valueDataGridViewTextBoxColumn,
             this.CreatedDate});
             this.dataGridView1.DataSource = this.itemCategoryBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(844, 476);
+            this.dataGridView1.Size = new System.Drawing.Size(830, 474);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CategoryName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CategoryName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             // 
             // CreatedDate
             // 
             this.CreatedDate.DataPropertyName = "CreatedDate";
             this.CreatedDate.HeaderText = "CreatedDate";
             this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.Width = 160;
+            // 
+            // itemCategoryBindingSource
+            // 
+            this.itemCategoryBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.ItemCategory);
             // 
             // menuStrip1
             // 
@@ -107,14 +133,14 @@
             // adatbázisbaToolStripMenuItem
             // 
             this.adatbázisbaToolStripMenuItem.Name = "adatbázisbaToolStripMenuItem";
-            this.adatbázisbaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.adatbázisbaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.adatbázisbaToolStripMenuItem.Text = "Adatbázisba";
             this.adatbázisbaToolStripMenuItem.Click += new System.EventHandler(this.adatbázisbaToolStripMenuItem_Click_1);
             // 
             // cSVFájlbaToolStripMenuItem
             // 
             this.cSVFájlbaToolStripMenuItem.Name = "cSVFájlbaToolStripMenuItem";
-            this.cSVFájlbaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.cSVFájlbaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cSVFájlbaToolStripMenuItem.Text = "CSV fájlba";
             this.cSVFájlbaToolStripMenuItem.Click += new System.EventHandler(this.cSVFájlbaToolStripMenuItem_Click);
             // 
@@ -140,38 +166,6 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CategoryName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CategoryName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 161;
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // itemCategoryBindingSource
-            // 
-            this.itemCategoryBindingSource.DataSource = typeof(HáziKöltségNyilvántartó.ItemCategory);
-            // 
             // TermekekFelvitele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,9 +178,9 @@
             this.Text = "TermekekFelvitele";
             this.Load += new System.EventHandler(this.TermekekFelvitele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

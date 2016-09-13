@@ -118,7 +118,6 @@
     <Compile Include="DataTables\Category.cs" />
     <Compile Include="HelperClasses\CategoryStatistics.cs" />
     <Compile Include="HelperClasses\ItemCategory.cs" />
-    <Compile Include="HelperClasses\LoggedInUser.cs" />
     <Compile Include="HelperClasses\PasswordHelper.cs" />
     <Compile Include="HelperClasses\Statistics.cs" />
     <Compile Include="Exceptions\LoginException.cs" />

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HáziKöltségNyilvántartó.HelperClasses;
 
 namespace HáziKöltségNyilvántartó.ViewModels
 {
@@ -33,8 +32,8 @@ namespace HáziKöltségNyilvántartó.ViewModels
                 IsIncome = isIncome,
                 Value = priceOfItem,
                 CreatedTime = createdTime,
-                UserId = LoggedInUser.UserID
-        };
+                UserId = 1
+            };
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
         }
